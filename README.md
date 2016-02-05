@@ -29,7 +29,7 @@ For any app, if it cannot be found, `mm` default will be used.
 ## Units known by Loader
 
 * **core.app** - known by app actually (which also is loader), the app itself
-* **core.auth** - cryptographic passwords hashing, [JSON Web Tokens](https://jwt.io) encoding/decoding
+* **core.auth** - cryptographic passwords hashing, [JSON Web Tokens](https://jwt.io)([RFC 7519](https://tools.ietf.org/html/rfc7519)) encoding/decoding
 * **core.validator** — JSON Schema validator ([ajv](https://github.com/epoberezkin/ajv))
 * **core.settings** - settings, will be searched at cwd()+'/lib/settings'
 * **core.handler** - main app contract, will be searched at cwd()+'/lib/contract'
