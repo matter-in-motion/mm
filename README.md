@@ -2,17 +2,21 @@
 
 ## Features
 * modular architecture
-* settings system with any number of environments
+* settings system for any number of environments
 * cluster support
 * integrated daemonization
 * app console
 * logging
-* mmp (matter-in-motion protocol) supports:
+* request validation
+* response validation
+* mmp (matter-in-motion protocol)
   - [x] http/https
   - [x] websockets
+  - [x] rpc (remote procedure call)
+  - [x] events
   - [ ] batch requests
 - [ ] client lib for node.js
-- [x] clietn lib for browser
+- [x] client lib for browser
 
 ## Apps known by Loader
 
@@ -24,14 +28,17 @@ For any app, if it cannot be found, `mm` default will be used.
 
 ## Units known by Loader
 
-* core.app - known by app actually (which also is loader), the app itself
-* core.uncaught - uncaught exception handler
-* core.logger - [bunyan](https://github.com/trentm/node-bunyan) based logger
-
-* core.settings - settings, will be searched at cwd()+'/lib/settings'
-* core.handler - main app contract, will be searched at cwd()+'/lib/contract'
+* **core.app** - known by app actually (which also is loader), the app itself
+* **core.auth** - cryptographic passwords hashing, (JSON Web Tokens)[https://jwt.io] encoding/decoding
+* **core.validator** — JSON Schema validator [ajv](https://github.com/epoberezkin/ajv)
+* **core.settings** - settings, will be searched at cwd()+'/lib/settings'
+* **core.handler** - main app contract, will be searched at cwd()+'/lib/contract'
+* **core.logger** - [bunyan](https://github.com/trentm/node-bunyan) based logger
+* **core.uncaught** - uncaught exception handler
 
 For both core.settings and core.handler units, if unit cannot be found, `mm` default will be used.
+
+More docs coming soon!
 
 ## License
 
