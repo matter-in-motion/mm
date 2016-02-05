@@ -1,0 +1,48 @@
+{
+  "name": "matter-in-motion",
+  "version": "0.8.0",
+  "description": "Declarative microservice framework with RPC and events",
+  "keywords": [
+    "api",
+    "microservice",
+    "framework",
+    "rpc",
+    "event",
+    "realtime",
+    "web",
+    "websocket",
+    "mm"
+  ],
+  "author": {
+    "name": "Alexey Novikov",
+    "email": "v@2dubs.com"
+  },
+  "dependencies": {
+    "ajv": "^3.4.0",
+    "bunyan": "^1.5.1",
+    "cookie": "^0.2.3",
+    "express": "^4.0.0",
+    "jsonwebtoken": "^5.5.4",
+    "minimist": "^1.2.0",
+    "raw-body": "^2.1.5",
+    "units": "~1.0.0",
+    "ws": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/velocityzen/matter-in-motion"
+  },
+  "bin": {
+    "mm": "./bin/mm"
+  },
+  "directories": {
+    "lib": "./lib",
+    "bin": "./bin"
+  },
+  "scripts": {
+    "start": "node bin/mm start",
+    "stop": "node bin/mm stop",
+    "dev": "node bin/mm worker --env=dev"
+  },
+  "main": "./lib/index"
+}
