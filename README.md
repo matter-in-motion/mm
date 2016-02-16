@@ -2,9 +2,9 @@
 
 ## Features
 * modular architecture
-* settings system for any number of environments
 * cluster support
 * integrated daemonization
+* settings system for any number of environments
 * app console
 * logging
 * request validation
@@ -15,8 +15,8 @@
   - [x] rpc (remote procedure call)
   - [x] events
   - [ ] batch requests
-- [ ] client lib for node.js
-- [x] client lib for browser
+- [ ] nodejs client lib
+- [x] browser client lib
 
 ## Apps known by Loader
 
@@ -29,7 +29,7 @@ For any app, if it cannot be found, `mm` default will be used.
 ## Units known by Loader
 
 * **core.app** - known by app actually (which also is loader), the app itself
-* **core.auth** - cryptographic passwords hashing, [JSON Web Tokens](https://jwt.io)([RFC 7519](https://tools.ietf.org/html/rfc7519)) encoding/decoding
+* **core.auth** - cryptographic passwords hashing [scrypt](https://github.com/barrysteyn/node-scrypt), [JSON Web Tokens](https://jwt.io) ([RFC 7519](https://tools.ietf.org/html/rfc7519)) encoding/decoding
 * **core.validator** — JSON Schema validator ([ajv](https://github.com/epoberezkin/ajv))
 * **core.settings** - settings, will be searched at cwd()+'/lib/settings'
 * **core.handler** - main app contract, will be searched at cwd()+'/lib/contract'
