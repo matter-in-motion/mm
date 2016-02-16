@@ -11,7 +11,8 @@
     "realtime",
     "web",
     "websocket",
-    "mm"
+    "mm",
+    "mmp"
   ],
   "author": {
     "name": "Alexey Novikov",
@@ -25,6 +26,7 @@
     "jsonwebtoken": "^5.5.4",
     "minimist": "^1.2.0",
     "mmp-errors": "^0.8.0",
+    "ms": "^0.7.1",
     "raw-body": "^2.1.5",
     "scrypt": "^6.0.1",
     "units": "~1.0.0",
@@ -46,5 +48,6 @@
     "stop": "node bin/mm stop",
     "dev": "node bin/mm worker --env=dev"
   },
-  "main": "./lib/index"
+  "main": "./lib/index",
+  "license": "MIT"
 }
