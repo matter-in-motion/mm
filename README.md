@@ -1,6 +1,9 @@
 # Matter in Motion
 
 ## Features
+* secure
+* duplex
+* stateless
 * modular architecture
 * cluster support
 * integrated daemonization
