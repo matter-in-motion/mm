@@ -19,16 +19,16 @@
     "email": "v@2dubs.com"
   },
   "dependencies": {
-    "ajv": "^3.4.0",
-    "bunyan": "^1.5.1",
+    "ajv": "^4.0.0",
+    "bcrypt": "^0.8.6",
+    "bunyan": "^1.8.0",
     "cookie": "^0.2.3",
     "express": "^4.0.0",
-    "jsonwebtoken": "^5.5.4",
+    "jsonwebtoken": "^6.0.0",
     "minimist": "^1.2.0",
     "mmp-errors": "^0.8.0",
     "ms": "^0.7.1",
     "raw-body": "^2.1.5",
-    "scrypt": "^6.0.1",
     "units": "~1.0.0",
     "ws": "^1.0.0"
   },
