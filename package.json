@@ -1,6 +1,6 @@
 {
   "name": "matter-in-motion",
-  "version": "0.8.10",
+  "version": "0.9.0",
   "description": "Declarative microservice framework with RPC and events",
   "keywords": [
     "api",
