@@ -19,7 +19,7 @@
     "email": "v@2dubs.com"
   },
   "dependencies": {
-    "ajv": "^4.0.0",
+    "ajv": "^5.0.0",
     "bcrypt": "^1.0.0",
     "bunyan": "^1.8.0",
     "cookie": "^0.3.0",
