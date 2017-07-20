@@ -23,14 +23,11 @@
     "bcrypt": "^1.0.2",
     "bunyan": "^1.8.10",
     "cookie": "^0.3.0",
-    "express": "^4.15.3",
     "jsonwebtoken": "^7.4.1",
     "minimist": "^1.2.0",
     "mmp-errors": "^0.8.0",
     "ms": "^2.0.0",
-    "raw-body": "^2.1.5",
-    "units": "^1.2.0",
-    "uws": "^0.14.5"
+    "units": "^1.2.0"
   },
   "repository": {
     "type": "git",
