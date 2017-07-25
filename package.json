@@ -1,6 +1,6 @@
 {
   "name": "matter-in-motion",
-  "version": "0.9.9",
+  "version": "1.0.0",
   "description": "Declarative microservice framework with RPC and events",
   "keywords": [
     "api",
@@ -27,11 +27,11 @@
     "minimist": "^1.2.0",
     "mmp-errors": "^0.8.0",
     "ms": "^2.0.0",
-    "units": "^1.2.0"
+    "units": "^2.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/velocityzen/matter-in-motion"
+    "url": "https://github.com/matter-in-motion/mm"
   },
   "bin": {
     "mm": "./bin/mm"
