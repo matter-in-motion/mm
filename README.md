@@ -25,7 +25,7 @@
   - websockets
   - mqtt (in progress)
 * [API and Resources](https://github.com/matter-in-motion/mm/blob/master/docs/api.md)
-* [Authentication](https://github.com/matter-in-motion/mm/blob/master/docs/authetication.md)
+* [Authentication](https://github.com/matter-in-motion/mm/blob/master/docs/authentication.md)
 * [Cli](https://github.com/matter-in-motion/mm/blob/master/docs/cli.md)
 * [Sweets](https://github.com/swts/sweets)
 
