@@ -2,6 +2,10 @@
 
 ## Micro service framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.
 
+## Why not REST?
+
+To put it simple real world application needs more than GET, POST, PUT, DELETE. Real world applications use more than just HTTP. How about WebSockets? MQTT? Events? Notifications?
+
 ### Features
 * **~100ms** startup time for simpe demo application worker
 * **Under 1s** startup time for real world application cluster with 8 workers
@@ -22,9 +26,9 @@
 * [Protocol](https://github.com/matter-in-motion/mm/blob/master/docs/protocol.md)
 * [Settings](https://github.com/matter-in-motion/mm/blob/master/docs/settings.md)
 * [Transports](https://github.com/matter-in-motion/mm/blob/master/docs/transports.md)
-  - http
-  - websockets
-  - mqtt (in progress)
+  - HTTP
+  - WebSockets
+  - MQTT (in progress)
 * [API and Resources](https://github.com/matter-in-motion/mm/blob/master/docs/api.md)
 * [Authentication](https://github.com/matter-in-motion/mm/blob/master/docs/authentication.md)
 * [Cli](https://github.com/matter-in-motion/mm/blob/master/docs/cli.md)
