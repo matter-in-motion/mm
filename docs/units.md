@@ -33,4 +33,59 @@ Function, If method present it will be called when a unit is required and it sho
 ## UnitSet
 More info at [units repository](https://github.com/velocityzen/units)
 
+## Usage
+
+Units lets you build very simple, predictable and flexible architecture. Look at the actual resources exmaple:
+
+```
+/resources
+  /message
+    api.js
+    controller.js
+    units.js
+  /user
+    api.js
+    controller.js
+    units.js
+units.js
+```
+
+With this structure you can easly have references to any of your classes.
+
+To get reference to message controller from message api you can simply:
+
+```js
+Api.prototype.__init = function(units) {
+  this.ctrl = units.require('controller');
+}
+```
+
+To get reference to message controller from user controller:
+
+```js
+User.prototype.__init = function(units) {
+  this.message = units.require('message.controller');
+  //or
+  this.message = units.require('resources.message.controller');
+}
+```
+
+To get all the resource from somewhere in the app:
+
+```js
+Service.prototype.__init = function(units) {
+  const resources = units.require('resources');
+
+  //now you can iterate over resources
+  for (name of resources) {
+    const resource = resources.require(name);
+    //do something with the resource
+  }
+
+  //or this way
+  resources.match('^(.*)\.api$', (unit, name) => this.addResource(name, unit));
+}
+```
+
+You can expose any kind of data to the units namepsaces as well. Learn more about it at [units repository](https://github.com/velocityzen/units)
 

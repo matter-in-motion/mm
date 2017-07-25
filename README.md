@@ -9,6 +9,7 @@
 * **Simple modular architecture to build complex RPC APIs** code base in production since 2013
 * **Request and response data validation** using declarative style api and JSON Schema validator ([ajv](https://github.com/epoberezkin/ajv))
 * **Built-in api auto discovery**
+* **Built-in api auto tests (in progress)**
 
 ## Usage
 
@@ -27,7 +28,8 @@
 * [API and Resources](https://github.com/matter-in-motion/mm/blob/master/docs/api.md)
 * [Authentication](https://github.com/matter-in-motion/mm/blob/master/docs/authentication.md)
 * [Cli](https://github.com/matter-in-motion/mm/blob/master/docs/cli.md)
-* [Sweets](https://github.com/swts/sweets)
+* [Errors codes](https://github.com/matter-in-motion/mm-errors)
 
+__Matter in motion is very simple lowlevel framework. If you want something more ready to use from the box check out [Sweets](https://github.com/swts/sweets)__
 
 License: MIT.
