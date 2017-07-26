@@ -3,7 +3,7 @@
 ## Installation
 
 1. The usual `npm i matter-in-motion`
-2. mkdir bin && ln -s bin/mm ../node-modules/matter-in-motion/bin/mm
+2. Create a link to the bin `mkdir bin && cd bin && ln -s ../node_modules/matter-in-motion/bin/mm mm && cd ..`
 
 ## Getting started
 
@@ -12,6 +12,7 @@ What's next? Let's make a simple 'Hello world' app:
 1. Create `lib/app.js` with this content:
 
 ```js
+'use strict';
 const inherits = require('util').inherits;
 const MMApp = require('matter-in-motion').App;
 
@@ -22,6 +23,8 @@ inherits(App, MMApp);
 
 module.exports = App;
 ```
+
+Why just created our App class inherited from the Matter In Motion App class
 
 2. Matter in motion is a modular framework. And it is transport agnostic. So for a next step, you have to choose what transport you are going to use:
   - http
@@ -88,10 +91,9 @@ Api.prototype.hello = function() {
   //this function returns schema of the resource method
   return {
     title: 'World',
-    description: 'Say hello to the world!'
+    description: 'Say hello to the world!',
     //request validation JSONSchema
-    request: { type: 'string' }
-    },
+    request: { type: 'string' },
     //call function
     call: (auth, data, cb) => this.ctrl.hello(data, cb)
   };
@@ -112,7 +114,7 @@ Controller.prototype.__init = function(units) {
 };
 
 Controller.prototype.hello = function(name, cb) {
-  cb(null, 'Hello' + (name || 'stranger') + '!');
+  cb(null, `Hello ${name}!`);
 };
 
 module.exports = Controller;
@@ -143,7 +145,7 @@ const world = require('./world/units');
 module.exports = { world };
 ```
 
-This is done! Next is frontend part. Create a `templates/index.html`. Here we created a simple `Post` request and parse the response. You should be familiar with plain JavaScript in the browser. You may want to read more about [matter in motion protocol](https://github.com/matter-in-motion/mm/blob/master/docs/protocol.md) and [http transport](https://github.com/matter-in-motion/mm-http) later.
+This is done! Next is frontend part. Create a `templates/index.html`. Here we created a simple `POST` request and parse the response. You should be familiar with plain JavaScript in the browser. You may want to read more about [matter in motion protocol](https://github.com/matter-in-motion/mm/blob/master/docs/protocol.md) and [http transport](https://github.com/matter-in-motion/mm-http) later.
 
 ```html
 <!DOCTYPE html>
@@ -168,21 +170,29 @@ This is done! Next is frontend part. Create a `templates/index.html`. Here we cr
         var res;
         if (xhr.status === 200) {
           var msg = JSON.parse(xhr.responseText);
-          res = msg[1];
+          //error?
+          if (msg[0]) {
+            res = msg[0].code + ' ' + msg[0].message;
+          } else {
+            res = msg[1];
+          }
         } else {
           res = xhr.status;
         }
 
-        result += res;
+        result.value += res + '\n';
       }
     });
   </script>
 </html>
+
 ```
 
 To serve our page lets add this to our application:
 
 ```js
+'use strict';
+const fs = require('fs');
 const inherits = require('util').inherits;
 const MMApp = require('matter-in-motion').App;
 
@@ -194,6 +204,9 @@ const App = function(options) {
 inherits(App, MMApp);
 
 App.prototype.willStart = function() {
+  // add resources
+  this.addResources();
+
   this.use('/', (req, res) => {
     res.status(200)
     res.set('Content-Type', 'text/html')
@@ -202,7 +215,10 @@ App.prototype.willStart = function() {
 };
 
 module.exports = App;
+
 ```
+
+4. The last one. Just create default directories for logs. `mkdir -p var/{app,log}`.
 
 That's it! We a read to have our first call. Run application `bin/mm worker` and go to [http://localhost:3000](http://localhost:3000) and try it yourself.
 

@@ -1,7 +1,7 @@
 {
   "name": "matter-in-motion",
   "version": "1.0.0",
-  "description": "Declarative microservice framework with RPC and events",
+  "description": "Micro service framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.",
   "keywords": [
     "api",
     "microservice",
