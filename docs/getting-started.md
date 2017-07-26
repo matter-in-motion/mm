@@ -208,7 +208,5 @@ That's it! We a read to have our first call. Run application `bin/mm worker` and
 
 Hooray!
 
-What's next?
-
 
 
