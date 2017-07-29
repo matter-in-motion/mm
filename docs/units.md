@@ -83,6 +83,11 @@ Service.prototype.__init = function(units) {
   }
 
   //or this way
+  resources.forEach((unit, name) => {
+    console.log(name);
+  });
+
+  //or this way
   resources.match('^(.*)\.api$', (unit, name) => this.addResource(name, unit));
 }
 ```

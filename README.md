@@ -10,7 +10,7 @@ To put it simple real world application needs more than GET, POST, PUT, DELETE. 
 * **~100ms** startup time for simpe demo application worker
 * **Under 1s** startup time for real world application cluster with 8 workers
 * **Secure** built in authtorisation with cryptographic passwords hashing [bcrypt](https://github.com/ncb000gt/node.bcrypt.js), [JSON Web Tokens](https://jwt.io) ([RFC 7519](https://tools.ietf.org/html/rfc7519)) encoding/decoding
-* **Simple modular architecture to build complex RPC APIs** code base in production since 2013
+* **Simple modular extensible architecture to build complex RPC APIs** code base in production since 2013
 * **Request and response data validation** using declarative style api and JSON Schema validator ([ajv](https://github.com/epoberezkin/ajv))
 * **Built-in api auto discovery**
 * **Built-in api auto tests (in progress)**
@@ -25,6 +25,7 @@ To put it simple real world application needs more than GET, POST, PUT, DELETE. 
 * [Units](https://github.com/matter-in-motion/mm/blob/master/docs/units.md)
 * [Protocol](https://github.com/matter-in-motion/mm/blob/master/docs/protocol.md)
 * [Settings](https://github.com/matter-in-motion/mm/blob/master/docs/settings.md)
+* [Extensions](https://github.com/matter-in-motion/mm/blob/master/docs/extensions.md)
 * [Transports](https://github.com/matter-in-motion/mm/blob/master/docs/transports.md)
   - HTTP
   - WebSockets
@@ -34,6 +35,6 @@ To put it simple real world application needs more than GET, POST, PUT, DELETE. 
 * [Cli](https://github.com/matter-in-motion/mm/blob/master/docs/cli.md)
 * [Errors codes](https://github.com/matter-in-motion/mm-errors)
 
-__Matter in motion is very simple lowlevel framework. If you want something more ready to use from the box check out [Sweets](https://github.com/swts/sweets)__
+
 
 License: MIT.

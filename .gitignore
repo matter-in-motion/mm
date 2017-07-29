@@ -13,7 +13,5 @@ logs
 results
 
 npm-debug.log
-static/js/
-static/css/
 .DS_Store
 node_modules

@@ -62,7 +62,6 @@ _All matter in motion settings placed under `core` namespace._
 * __api__ — path, '/api'. API URL path
 * __codecs__ — object, defines codecs settings. For now, it is only one JSON codec.
 * __auth__ — object. [Authentication settings](https://github.com/matter-in-motion/mm/blob/master/docs/authentication.md).
-* __transports__ — object, undefined. [Transports settings](https://github.com/matter-in-motion/mm/blob/master/docs/transports.md)
 * __daemon__ — object. Daemon settings
   - __start__
     + __exec__ — file to execute, `require.main.filename`

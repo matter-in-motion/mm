@@ -7,4 +7,10 @@ To use [API and resources](https://github.com/matter-in-motion/mm/blob/master/do
 * __[http](https://github.com/matter-in-motion/mm-http)__
 * __[websockets](https://github.com/matter-in-motion/mm-websockets)__
 
-To install transport module just `npm install` it in your application folder and add transport settings into `core.transports` part. You can define multiple types of transport at once.
+Install transport extension as any other Matter in Motion extension:
+
+1. `npm i <extension>`
+2. Add extension into extensions list in your settings
+3. Add extension settings
+
+__You can use multiple transports at once.__

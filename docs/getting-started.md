@@ -50,11 +50,13 @@ inherits(Settings, MMSettings);
 Settings.prototype.init = function() {
   Settings.super_.prototype.init.call(this);
 
-  this.core.transports = {
-    http: {
-      port: 3000,
-      host: '0.0.0.0'
-    }
+  this.extensions = [
+    'http'
+  ]
+
+  this.http: {
+    port: 3000,
+    host: '0.0.0.0'
   };
 };
 
@@ -127,12 +129,10 @@ Concluded with units export `units.js`:
 const Api = require('./api');
 const Controller = require('./controller');
 
-module.exports = () => {
-  return {
-    controller: new Controller(),
-    api: new Api()
-  };
-};
+module.exports = () => ({
+  controller: new Controller(),
+  api: new Api()
+});
 ```
 
 Let's review. We have `lib/resources/world` folder with three files `api.js`, `controller.js` and `units.js`. It is your first resource! Congratulations!
@@ -204,9 +204,6 @@ const App = function(options) {
 inherits(App, MMApp);
 
 App.prototype.willStart = function() {
-  // add resources
-  this.addResources();
-
   this.use('/', (req, res) => {
     res.status(200)
     res.set('Content-Type', 'text/html')
