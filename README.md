@@ -1,6 +1,6 @@
 # Matter In Motion
 
-## Micro service framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.
+## Application framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.
 
 ## Why not REST?
 
