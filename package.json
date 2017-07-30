@@ -28,6 +28,7 @@
     "minimist": "^1.2.0",
     "mm-errors": "^1.0.0",
     "ms": "^2.0.0",
+    "prettyjson": "^1.2.1",
     "units": "^2.0.0"
   },
   "repository": {

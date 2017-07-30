@@ -6,7 +6,10 @@
 ### Options
 **`--env=<envname>`** — load environment settings.
 
-### Commands to control the app in the deamon mode
+### Command to run the app
+* __run__
+
+### Commands to control the app in the daemon mode
 * __start__
 * __stop__
 * __restart__
