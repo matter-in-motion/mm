@@ -34,7 +34,8 @@ Extensions could be very different, they can add resources, transports, or any o
   - `db` — for database connectors
   - `templates` — for templates engines
   - `transports` — for transports
-  - `resources` — for resources obviously
+  - `commands` — to add custom cli commands
+  - `resources` — to add resources
 3. The main file of your extension package may return units tree you want to add to the application
 
 For example as [HTTP transport extension](https://github.com/matter-in-motion/mm-http):
@@ -63,5 +64,40 @@ module.exports = units => {
 ```
 
 Doesn't add any new units but extends existing unit.
+
+### Custom commands
+
+To add a custom cli commnad from your extension you have to export commands declarations from it. It looks like this:
+
+```js
+'use strict';
+module.exports = {
+  commands: {
+    user: {
+      __expose: true,
+      create: {
+        description: '<user> <password>. Creates a new user',
+        call: (name, password, cb) => {
+          //this is the app instance
+          //so you have access to all the units
+          const ctrl = this.units.require('resources.user.controller');
+          ctrl.create(name, password, cb);
+        }
+      },
+    }
+  }
+};
+```
+
+* **namespace** — here is the `user`. Give us a name space for all commands
+  - **__expose** — this is a special units derective to expose this object as it is and not like a unit
+  - **name** — here is a `create`. Command name
+    + **description** — command help string.
+    + **call** — command function. `this` is the application instance.
+
+To use the command declared above:
+
+`bin/mm user create John password`
+
 
 

@@ -1,7 +1,7 @@
 {
   "name": "matter-in-motion",
   "version": "1.0.0",
-  "description": "Application framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.",
+  "description": "Node.js framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.",
   "keywords": [
     "api",
     "microservice",

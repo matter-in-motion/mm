@@ -17,3 +17,36 @@
 ### Commands useful for developing:
 * __worker__ — starts one instance of the app
 * __console__ — starts the REPL console with the loaded app
+
+## Custom commands
+
+To add your own custom commands just add a command declaration to the commands unit:
+
+```js
+units.add({
+  commands: {
+    user: {
+      __expose: true,
+      create: {
+        description: '<user> <password>. Creates a new user',
+        call: (name, password, cb) => {
+          //this is the app instance
+          //so you have access to all the units
+          const ctrl = this.units.require('resources.user.controller');
+          ctrl.create(name, password, cb);
+        }
+      }
+    }
+  }
+})
+```
+
+* **namespace** — here is the `user`. Give us a name space for all commands
+  - **__expose** — this is a special units derective to expose this object as it is and not like a unit
+  - **name** — here is a `create`. Command name
+    + **description** — command help string.
+    + **call** — command function. `this` is the application instance.
+
+To use the command declared above:
+
+`bin/mm user create John password`

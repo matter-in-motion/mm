@@ -1,6 +1,6 @@
 # Matter In Motion
 
-## Application framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.
+## Node.js framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.
 
 ## Why not REST?
 
