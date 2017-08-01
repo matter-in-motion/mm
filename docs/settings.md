@@ -42,8 +42,8 @@ You can add `dev.js` file in your settings directory. Where `settings` is the yo
 ```js
 'use strict';
 
-module.exports = settings => {
-  settings.core.debug = true;
+module.exports = function() {
+  this.core.debug = true;
 };
 
 ```
