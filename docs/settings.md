@@ -1,4 +1,4 @@
-# Matter in Motion settings
+# Matter in Motion. Settings
 
 Matter in motion provides very flexible settings system for your application.
 
