@@ -1,5 +1,9 @@
 # Matter In Motion
 
+[![NPM Downloads](https://img.shields.io/npm/dt/matter-in-motion.svg?style=flat-square)](https://www.npmjs.com/package/matter-in-motion)
+[![NPM Version](https://img.shields.io/npm/v/matter-in-motion.svg?style=flat-square)](https://www.npmjs.com/package/matter-in-motion)
+
+
 ## Node.js framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.
 
 ## Why not REST?
