@@ -29,7 +29,7 @@ units.add({
       __expose: true,
       create: {
         description: '<user> <password>. Creates a new user',
-        call: (name, password, cb) => {
+        call: function(name, password, cb) {
           //this is the app instance
           //so you have access to all the units
           const ctrl = this.units.require('resources.user.controller');
@@ -41,7 +41,7 @@ units.add({
 })
 ```
 
-* **namespace** — here is the `user`. Give us a name space for all commands
+* **namespace** — here is the `user`. A name space for all commands
   - **__expose** — this is a special units derective to expose this object as it is and not like a unit
   - **name** — here is a `create`. Command name
     + **description** — command help string.

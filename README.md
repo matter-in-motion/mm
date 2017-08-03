@@ -8,20 +8,20 @@
 
 ## Why not REST?
 
-To put it simple real world application needs more than GET, POST, PUT, DELETE. Real world applications use more than just HTTP. How about WebSockets? MQTT? Events? Notifications?
+Put simply, real world application needs more than GET, POST, PUT, DELETE. Real world applications use more than just HTTP. How about WebSockets? MQTT? Events? Notifications?
 
 ### Features
-* **~100ms** startup time for simpe demo application worker
+* **~100ms** startup time for simple demo application worker
 * **Under 1s** startup time for real world application cluster with 8 workers
-* **Secure** built in authtorisation with cryptographic passwords hashing [bcrypt](https://github.com/ncb000gt/node.bcrypt.js), [JSON Web Tokens](https://jwt.io) ([RFC 7519](https://tools.ietf.org/html/rfc7519)) encoding/decoding
-* **Simple modular extensible architecture to build complex RPC APIs** code base in production since 2013
-* **Request and response data validation** using declarative style api and JSON Schema validator ([ajv](https://github.com/epoberezkin/ajv))
-* **Built-in api auto discovery**
-* **Built-in api auto tests (in progress)**
+* **Secure** built-in authtorisation with cryptographic passwords hashing [bcrypt](https://github.com/ncb000gt/node.bcrypt.js), [JSON Web Tokens](https://jwt.io) ([RFC 7519](https://tools.ietf.org/html/rfc7519)) encoding/decoding
+* **Simple modular extensible architecture to build complex RPC APIs.** (Code base in production since 2013)
+* **Request and response data validation** using declarative style API and JSON Schema validator ([ajv](https://github.com/epoberezkin/ajv))
+* **Built-in API auto discovery**
+* **Built-in API auto tests (in progress)**
 
 ## Usage
 
-1. [Getting started](https://github.com/matter-in-motion/mm/blob/master/docs/getting-started.md) — a tutorial with all the steps to make application from scratch and explanations of framework's architecture
+1. [Getting started](https://github.com/matter-in-motion/mm/blob/master/docs/getting-started.md) — explanations of framework's architecture and a tutorial with all the steps to make an application from scratch
 2. Clone the [demo application](https://github.com/matter-in-motion/demo).
 
 ## Content
