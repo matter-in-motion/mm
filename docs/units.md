@@ -1,6 +1,6 @@
 # Matter In Motion. Units
 
-Units is a simple way to have definable namespaces and two step initialization
+Units is a simple way to have definable namespaces for application modules and two step initialization
 
 ## Unit
 
@@ -14,7 +14,6 @@ const Controller = function () {
 Controller.prototype.__init = function (units) {
   // all units are instantiated at this point
   // getting components we're depended on
-  // here we can have estabileshed db connection
   this.db = units.require('db');
 };
 ```

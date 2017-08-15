@@ -20,29 +20,29 @@
 
 ## Custom commands
 
-To add your own custom commands just add a command declaration to the commands unit:
+To add your own custom commands just add a `commands` declaration. It can be a `commands.js` or `commands/index.js` in your app directory.
 
 ```js
-units.add({
-  commands: {
-    user: {
-      __expose: true,
-      create: {
-        description: '<user> <password>. Creates a new user',
-        call: function(name, password, cb) {
-          //this is the app instance
-          //so you have access to all the units
-          const ctrl = this.units.require('resources.user.controller');
-          ctrl.create(name, password, cb);
-        }
+'use strict';
+module.exports = {
+  user: {
+    __expose: true,
+    create: {
+      description: '<user> <password>. Creates a new user',
+      call: function(name, password, cb) {
+        //this is the app instance
+        //so you have access to all the units
+        const ctrl = this.units.require('resources.user.controller');
+        ctrl.create(name, password, cb);
       }
     }
   }
-})
+}
 ```
 
 * **namespace** — here is the `user`. A name space for all commands
-  - **__expose** — this is a special units derective to expose this object as it is and not like a unit
+  - **__expose** — this is a special units directive to expose this object as it is and not like a unit
+  - **__extend** — this is a special units directive to extend existent commands namespace declaration (for example from an extension)
   - **name** — here is a `create`. Command name
     + **description** — command help string.
     + **call** — command function. `this` is the application instance.
