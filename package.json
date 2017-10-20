@@ -20,16 +20,16 @@
     "email": "v@2dubs.com"
   },
   "dependencies": {
-    "ajv": "^5.2.0",
-    "bcrypt": "^1.0.2",
-    "bunyan": "^1.8.10",
+    "ajv": "^5.2.3",
+    "bcrypt": "^1.0.3",
     "cookie": "^0.3.0",
-    "jsonwebtoken": "^7.4.1",
+    "jsonwebtoken": "^8.1.0",
     "minimist": "^1.2.0",
     "mm-errors": "^1.0.0",
     "ms": "^2.0.0",
+    "pino": "^4.7.3",
     "prettyjson": "^1.2.1",
-    "units": "^2.1.0"
+    "units": "^3.0.0"
   },
   "repository": {
     "type": "git",
