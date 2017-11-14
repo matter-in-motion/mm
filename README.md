@@ -40,5 +40,4 @@ Put simply, real world application needs more than GET, POST, PUT, DELETE. Real 
 * [Errors codes](https://github.com/matter-in-motion/mm-errors)
 
 
-
 License: MIT.
