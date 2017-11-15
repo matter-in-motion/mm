@@ -2,6 +2,8 @@
 
 Units is a simple way to have definable namespaces for application modules and two step initialization
 
+More info at [units repository](https://github.com/velocityzen/units)
+
 ## Unit
 
 Unit is simple interface
@@ -18,7 +20,7 @@ Controller.prototype.__init = function (units) {
 };
 ```
 
-### Interface methods
+### Interface methods and properties
 
 #### __init
 Function, unit initialisation
@@ -28,9 +30,6 @@ Boolean, means that this unit, when required, will be returned inited
 
 #### __instance
 Function, If method present it will be called when a unit is required and it should return what you want to return instead of the unit class itself.
-
-## UnitSet
-More info at [units repository](https://github.com/velocityzen/units)
 
 ## Usage
 
@@ -50,14 +49,6 @@ units.js
 ```
 
 With this structure you can easly have references to any of your classes.
-
-To get reference to message controller from message api you can simply:
-
-```js
-Api.prototype.__init = function(units) {
-  this.ctrl = units.require('controller');
-}
-```
 
 To get reference to message controller from user controller:
 

@@ -39,36 +39,32 @@ Usual units structure of the resource inside `lib/resources` folder
 
 ### api.js
 
-This class is a resource API description. It is optional, means that resources without API unit will not be available from the API. You can define as many methods as you want.
+This is a declaration of the resource API. It is optional, means that resources without API unit will not be available from the API. You can define as many methods as you want.
 
 ```js
 'use strict';
 
-const Api = function() {
-  //here we expose api methods
-  this.calls = [ 'hello' ];
-}
+module.exports = {
+  __expose: true,
 
-Api.prototype.__init = function(units) {
-  this.ctrl = units.require('controller');
+  hello: function(app) {
+    // this is binded to resource controller is avaliable
+    // app is an instance of your app
+    return {
+      title: 'World',
+      description: 'Say hello to the world!',
+      //request validation JSONSchema
+      request: { type: 'string' },
+      //response validation JSONSchema
+      response: { type: 'string' },
+      //call function
+      call: function(auth, data) => {
+        // this is binded to the app instance
+        return 'Hello' + data;
+      }
+    }
+  }
 };
-
-Api.prototype.hello = function() {
-  return {
-    title: 'World',
-    description: 'Say hello to the world!',
-    auth: {
-      provider: 'user',
-      required: true
-    },
-    raw: false,
-    request: { type: 'string' },
-    response: { type: 'string' },
-    call: (auth, data, cb) => this.ctrl.hello(data, cb)
-  };
-};
-
-module.exports = Api;
 ```
 
 #### Schema
@@ -102,15 +98,12 @@ Simple unit you can do whatever you want here
 
 ```js
 'use strict';
-const Api = require('./api');
+const api = require('./api');
 const Controller = require('./controller');
 
-module.exports = () => {
-  return {
-    controller: new Controller(),
-    api: new Api()
-  };
-};
+module.exports = () => ({
+  api, controller: new Controller()
+});
 ```
 
 ### resources/units.js
@@ -123,23 +116,4 @@ module.exports = { resource1, resource2 };
 
 ## Usage
 
-To make your resources available in your app call `addResources` in `willStart` method of the app
-
-```js
-'use strict';
-const fs = require('fs');
-const MMApp = require('matter-in-motion').App;
-
-const App = function(options) {
-  MMApp.call(this, options);
-};
-inherits(App, MMApp);
-
-App.prototype.willStart = function() {
-  this.addResources();
-};
-
-module.exports = App;
-```
-
-
+Your resources will be available in your app in the `resources` unit.

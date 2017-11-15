@@ -29,11 +29,12 @@ module.exports = {
     __expose: true,
     create: {
       description: '<user> <password>. Creates a new user',
-      call: function(name, password, cb) {
+      call: function(name, password) {
         //this is the app instance
         //so you have access to all the units
-        const ctrl = this.units.require('resources.user.controller');
-        ctrl.create(name, password, cb);
+        return this.units
+          .require('resources.user.controller')
+          .create(name, password);
       }
     }
   }

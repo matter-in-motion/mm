@@ -77,11 +77,12 @@ module.exports = {
       __expose: true,
       create: {
         description: '<user> <password>. Creates a new user',
-        call: (name, password, cb) => {
+        call: function(name, password) {
           //this is the app instance
           //so you have access to all the units
-          const ctrl = this.units.require('resources.user.controller');
-          ctrl.create(name, password, cb);
+          return this.units
+            .require('resources.user.controller')
+            .create(name, password);
         }
       },
     }
@@ -90,7 +91,8 @@ module.exports = {
 ```
 
 * **namespace** — here is the `user`. Give us a name space for all commands
-  - **__expose** — this is a special units derective to expose this object as it is and not like a unit
+  - **__expose** — this is a special units directive to expose this object as it is and not like a unit
+  - **__extend** — this is a special units directive to extend existent commands namespace declaration (for example from an extension)
   - **name** — here is a `create`. Command name
     + **description** — command help string.
     + **call** — command function. `this` is the application instance.

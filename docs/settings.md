@@ -102,3 +102,16 @@ _All matter in motion settings placed under `core` namespace._
 }
 ```
 
+## Settings class methods
+
+### joinPath(...args)
+
+returns joined path from the the `core.root`
+
+### require(name)
+
+returns the `name` section from the settings. If doesnt exists throws an error.
+
+### apply(settings)
+
+if `settings` is a string will try to load `settings` file. If `settings` is an object simpply applies it to the globla settings.

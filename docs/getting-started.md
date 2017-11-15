@@ -73,35 +73,29 @@ Let's start with the resource.
 
 `mkdir -p lib/resources/world`
 
-Here we need to make `world` API description file `api.js`
+Here we need to make `world` API declaration file `api.js`
 
 ```js
 'use strict';
 
-const Api = function() {
-  //here we expose api methods
-  this.calls = [ 'hello' ];
-}
+module.exports = {
+  __expose: true,
 
-//unit init
-Api.prototype.__init = function(units) {
-  //import resource controller
-  this.ctrl = units.require('controller');
+  hello: function() {
+    // returns a method declaration
+    // this is a resources controller if exists
+    return {
+      title: 'World',
+      description: 'Say hello to the world!',
+      //request validation JSONSchema
+      request: { type: 'string' },
+      //response validation JSONSchema
+      response: { type: 'string' },
+      //call function
+      call: (auth, data) => this.hello(data)
+    }
+  }
 };
-
-Api.prototype.hello = function() {
-  //this function returns schema of the resource method
-  return {
-    title: 'World',
-    description: 'Say hello to the world!',
-    //request validation JSONSchema
-    request: { type: 'string' },
-    //call function
-    call: (auth, data, cb) => this.ctrl.hello(data, cb)
-  };
-};
-
-module.exports = Api;
 ```
 
 And the `controller.js`. Where is all the business happening:
@@ -115,8 +109,8 @@ Controller.prototype.__init = function(units) {
   //units interface
 };
 
-Controller.prototype.hello = function(name, cb) {
-  cb(null, `Hello ${name}!`);
+Controller.prototype.hello = function(name) {
+  return `Hello ${name}!`;
 };
 
 module.exports = Controller;
@@ -126,12 +120,11 @@ Concluded with units export `units.js`:
 
 ```js
 'use strict';
-const Api = require('./api');
+const api = require('./api');
 const Controller = require('./controller');
 
 module.exports = () => ({
-  controller: new Controller(),
-  api: new Api()
+  api, controller: new Controller()
 });
 ```
 
@@ -203,7 +196,7 @@ const App = function(options) {
 };
 inherits(App, MMApp);
 
-App.prototype.willStart = function() {
+App.prototype.didStart = function() {
   this.use('/', (req, res) => {
     res.status(200)
     res.set('Content-Type', 'text/html')

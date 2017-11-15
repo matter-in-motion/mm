@@ -52,15 +52,15 @@ In the `core.auth` section you can define your own provider the same way as abov
 
 Returns provider
 
-**verify(opts, meta, cb)**
+**verify(opts, meta)**
 
-Verifies meta part of the message with auth options from the API description.
+Verifies meta part of the message with auth options from the API description. Returns a promise.
 
 ### Provider
 
-**sign(data, opts, cb)**
+**sign(data, opts)**
 
-Signs the `data` with default provider settings. `expiresIn`, `subject`, `audience` can be overridden by `opts`. And returns JSON Web Token.
+Signs the `data` with default provider settings. `expiresIn`, `subject`, `audience` can be overridden by `opts`. And returns JSON Web Token. Returns a promise.
 
 ```js
 {
@@ -69,9 +69,9 @@ Signs the `data` with default provider settings. `expiresIn`, `subject`, `audien
 }
 ```
 
-**verify(token, opts, cb)**
+**verify(token, opts)**
 
-Verifies JSON Web Token. Returns token data or error.
+Verifies JSON Web Token. Returns a promise with token data.
 
 **createHash(string, cb)**
 
