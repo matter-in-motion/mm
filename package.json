@@ -28,9 +28,9 @@
     "minimist": "^1.2.0",
     "mm-errors": "^1.0.0",
     "ms": "^2.0.0",
-    "pino": "^4.10.0",
+    "pino": "^4.10.2",
     "prettyjson": "^1.2.1",
-    "units": "^3.0.0"
+    "units": "^3.0.1"
   },
   "repository": {
     "type": "git",

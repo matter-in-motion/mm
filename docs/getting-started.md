@@ -29,7 +29,6 @@ Why just created our App class inherited from the Matter In Motion App class
 2. Matter in motion is a modular framework. And it is transport agnostic. So for a next step, you have to choose what transport you are going to use:
   - http
   - websockets
-  - mqtt (in progress)
 
 Let's you choose HTTP for a beginning. To make this you need to create a settings file:
 
