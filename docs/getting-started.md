@@ -115,7 +115,7 @@ Controller.prototype.hello = function(name) {
 module.exports = Controller;
 ```
 
-Concluded with units export `units.js`:
+Concluded with units export `index.js`:
 
 ```js
 'use strict';
@@ -127,13 +127,13 @@ module.exports = () => ({
 });
 ```
 
-Let's review. We have `lib/resources/world` folder with three files `api.js`, `controller.js` and `units.js`. It is your first resource! Congratulations!
+Let's review. We have `lib/resources/world` folder with three files `api.js`, `controller.js` and `index.js`. It is your first resource! Congratulations!
 
-Now we need to export `world` resource. Create a `lib/resources/units.js`
+Now we need to export `world` resource. Create a `lib/resources/index.js`
 
 ```js
 'use strict';
-const world = require('./world/units');
+const world = require('./world');
 module.exports = { world };
 ```
 

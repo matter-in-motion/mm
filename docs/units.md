@@ -40,12 +40,12 @@ Units lets you build very simple, predictable and flexible architecture. Look at
   /message
     api.js
     controller.js
-    units.js
+    index.js
   /user
     api.js
     controller.js
-    units.js
-units.js
+    index.js
+index.js
 ```
 
 With this structure you can easly have references to any of your classes.

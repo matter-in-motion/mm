@@ -29,12 +29,12 @@ Usual units structure of the resource inside `lib/resources` folder
   /resource1
     api.js
     controller.js
-    units.js
+    index.js
   /resource2
     api.js
     controller.js
-    units.js
-  units.js
+    index.js
+  index.js
 ```
 
 ### api.js
@@ -94,7 +94,7 @@ Only `request` and `call` required for API method definition.
 
 Simple unit you can do whatever you want here
 
-### units.js
+### index.js
 
 ```js
 'use strict';
@@ -106,7 +106,7 @@ module.exports = () => ({
 });
 ```
 
-### resources/units.js
+### resources/index.js
 ```js
 'use strict';
 const resource1 = require('./resource1/units');
