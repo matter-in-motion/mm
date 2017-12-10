@@ -23,7 +23,6 @@
     "ajv": "^5.5.1",
     "bcrypt": "^1.0.3",
     "bluebird": "^3.5.1",
-    "cookie": "^0.3.0",
     "jsonwebtoken": "^8.1.0",
     "minimist": "^1.2.0",
     "mm-errors": "^1.0.0",

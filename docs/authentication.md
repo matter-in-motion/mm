@@ -73,10 +73,10 @@ Signs the `data` with default provider settings. `expiresIn`, `subject`, `audien
 
 Verifies JSON Web Token. Returns a promise with token data.
 
-**createHash(string, cb)**
+**createHash(string)**
 
-Creates hash from the string
+Creates hash from the string, returns a Promise
 
-**verifyHash(hash, string, cb)**
+**verifyHash(hash, string)**
 
-Verifies hash and the string
+Verifies hash and the string, returns a Promise
