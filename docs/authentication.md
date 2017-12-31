@@ -9,10 +9,10 @@ As Matter In Motion created to build the APIs, by default, it provides user auth
 
 ## Usage
 
-An example is the default user provider:
+An example of the user provider:
 
 ```js
-  settings.core.auth = {
+  settings.auth = {
     user: {
       active: true,
       token: {
