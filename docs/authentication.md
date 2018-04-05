@@ -13,6 +13,7 @@ An example of the user provider:
 
 ```js
   settings.auth = {
+    default: 'user',
     user: {
       active: true,
       token: {
@@ -30,7 +31,7 @@ An example of the user provider:
 
 This will create `user` authentication provider. First, it will look for the custom provider in `resources.user.provider` unit. If not found it will create default one.
 
-In the `core.auth` section you can define your own provider the same way as above.
+Also it defines the default auth provider. It will be used if no provider defined in the call schema.
 
 ## Settings
 

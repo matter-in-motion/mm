@@ -72,7 +72,7 @@ module.exports = {
 * __title__ — title of the resource method
 * __description__ — description of the resource method
 * __auth__
-  - __provider__ — auth provider that should be used to verify request meta. If provider not found or not active returns `ProviderNotFound` error
+  - provider — auth provider that should be used to verify request meta. If provider not found or not active returns `ProviderNotFound` error. Default prvider can also be defined in the sttings `auth` section as `default: 'user'`
   - __required__ — true, false, 'optional'. defines should API return an error if meta isn't verified. If true and failed to verify meta returns an `Unauthorized` error
 * __raw__ — default false. Defines if you need a raw connection to parse request manually. This requires to validate incoming data manually
 * __request__ — JSON Schema that request should be validated against. If not returns `RequestValidation` error

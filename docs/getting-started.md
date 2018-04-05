@@ -30,9 +30,9 @@ Why just created our App class inherited from the Matter In Motion App class
   - http
   - websockets
 
-Let's you choose HTTP for a beginning. To make this you need to create a settings file:
+Let's you choose HTTP transport and JSON serialization for a beginning. To make this you need to create a settings file:
 
-`npm i mm-http`
+`npm i mm-http mm-serializer-json`
 
 `lib/settings/index.js`
 
@@ -50,7 +50,8 @@ Settings.prototype.init = function() {
   Settings.super_.prototype.init.call(this);
 
   this.extensions = [
-    'http'
+    'http',
+    'serializer-json'
   ]
 
   this.http: {
