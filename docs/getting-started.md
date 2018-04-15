@@ -26,13 +26,11 @@ module.exports = App;
 
 Why just created our App class inherited from the Matter In Motion App class
 
-2. Matter in motion is a modular framework. And it is transport agnostic. So for a next step, you have to choose what transport you are going to use:
-  - http
-  - websockets
-
-Let's you choose HTTP transport and JSON serialization for a beginning. To make this you need to create a settings file:
+2. Matter in motion is a modular framework. And it is transport agnostic. So for a next step, we have to choose what transport and data serializer we are going to use. To keep things simple we stick to HTTP and JSON:
 
 `npm i mm-http mm-serializer-json`
+
+3. Let's create a settings file:
 
 `lib/settings/index.js`
 
@@ -52,7 +50,11 @@ Settings.prototype.init = function() {
   this.extensions = [
     'http',
     'serializer-json'
-  ]
+  ];
+
+  this.serializers = {
+    default: 'json'
+  };
 
   this.http: {
     port: 3000,
@@ -158,6 +160,7 @@ This is done! Next is frontend part. Create a `templates/index.html`. Here we cr
       xhr.open('POST', '/api', true);
       xhr.setRequestHeader('MM', JSON.stringify({ call: 'world.hello' }) );
       xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader('Accept', 'application/json');
       xhr.send(name);
       xhr.onload = function() {
         var res;

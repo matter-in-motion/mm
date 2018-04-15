@@ -7,17 +7,17 @@
 
 ## Why not REST?
 
-Put simply, real world application needs more than GET, POST, PUT, DELETE. Real world applications use more than just HTTP. How about WebSockets? MQTT? Events? Notifications?
+Put simply, real world application needs more than GET, POST, PUT, DELETE. Real world applications use more than just HTTP. How about WebSockets? MQTT? Events? Notifications? With REST your API is bind to HTTP.
 
 ### Features
 * **~250ms** startup time for simple demo application worker
 * **Under 1s** startup time for real world application cluster with 8 workers
 * **Secure** built-in authorization with cryptographic passwords hashing [bcrypt](https://github.com/ncb000gt/node.bcrypt.js), [JSON Web Tokens](https://jwt.io) ([RFC 7519](https://tools.ietf.org/html/rfc7519)) encoding/decoding
 * **Simple modular extensible architecture to build complex RPC APIs.** (Code base in production since 2013)
-* **Request and response data validation** using declarative style API and JSON Schema validator ([ajv](https://github.com/epoberezkin/ajv))
+* **Request and _response_ data validation** using declarative style API and JSON Schema validator ([ajv](https://github.com/epoberezkin/ajv))
 * **Simple error handling**
 * **Built-in API auto discovery**
-* **Built-in API auto tests (in progress)**
+* **Simple test tools ([mm-test](https://github.com/matter-in-motion/mm-test))**
 
 ## Usage
 
@@ -33,7 +33,9 @@ Put simply, real world application needs more than GET, POST, PUT, DELETE. Real 
 * [Transports](https://github.com/matter-in-motion/mm/blob/master/docs/transports.md)
   - HTTP
   - WebSockets
-  - MQTT (in progress)
+* [Serializers](https://github.com/matter-in-motion/mm/blob/master/docs/serializers.md)
+  - JSON
+  - MsgPack
 * [API and Resources](https://github.com/matter-in-motion/mm/blob/master/docs/api.md)
 * [Authentication](https://github.com/matter-in-motion/mm/blob/master/docs/authentication.md)
 * [Cli](https://github.com/matter-in-motion/mm/blob/master/docs/cli.md)
