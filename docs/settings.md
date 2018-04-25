@@ -4,7 +4,7 @@ Matter in motion provides very flexible settings system for your application.
 
 ## Basics
 
-There is `Settings` class that you should inherit your own settings class. Just create `settings.js` or `settings/index.js` in your app directory.
+There is `Settings` class that you should inherit your settings class from. Create `settings.js` or `settings/index.js` in your app directory.
 
 ```js
 'use strict';
@@ -31,13 +31,13 @@ Now you can easily import any of your settings in any of unit inside your applic
 
 ```js
 Module.prototype.__init = function(units) {
-  this.isIt = units.require('core.settings').isIt
+  this.isIt = units.require('core.settings').something
 }
 ```
 
 ## Using different environments
 
-You can add `dev.js` file in your settings directory. Where `settings` is the your main settings object.
+You can add `dev.js` file in your settings directory.
 
 ```js
 'use strict';
@@ -48,7 +48,7 @@ module.exports = function() {
 
 ```
 
-To use this environment you should define an `NODE_ENV` environment variable or launch your app with `--env=dev`.
+To use this environment, you should define a `NODE_ENV` environment variable or launch your app with `--env=dev`.
 
 Thus you can define any number environments for your app.
 
@@ -60,12 +60,12 @@ _All matter in motion settings placed under `core` namespace._
 * __serializers__ — object, defines serializers settings.
 * __extensions__ array of extensions
 * __core__
-  * __debug__ — boolean, false. Debug mode, adds more logging and validates API responses if validator is present
+  * __debug__ — boolean, false. Debug mode, adds more logging and validates API responses if the validator is present
   * __uncaught__ — boolean, true. Adds uncaught exceptions handler, default handler just puts all exception into the main log. You can define your own by creating `uncaught.js` in your app directory. See original `uncaught.js` for more info.
   * __api__
     - path, '/api'. API URL path
-    - discovery, true. Allows the dicovery ('?') requests
-    - throttle, false. Throttle responses by random time. Delays is defined by like `[min, max]`
+    - discovery, true. Allows the discovery ('?') requests
+    - throttle, false. Throttle responses at random time. Delays are defined by like `[min, max]`
 
   * __auth__ — object. [Authentication settings](https://github.com/matter-in-motion/mm/blob/master/docs/authentication.md).
   * __daemon__ — object. Daemon settings
@@ -109,12 +109,12 @@ _All matter in motion settings placed under `core` namespace._
 
 ### joinPath(...args)
 
-returns joined path from the the `core.root`
+returns joined path from the `core.root`.
 
 ### require(name)
 
-returns the `name` section from the settings. If doesnt exists throws an error.
+returns the `name` section from the settings, if the section does not exist throws an error.
 
 ### apply(settings)
 
-if `settings` is a string will try to load `settings` file. If `settings` is an object simpply applies it to the globla settings.
+if `settings` is a string tries to load `settings` file. If `settings` is an object applies it to the global settings.

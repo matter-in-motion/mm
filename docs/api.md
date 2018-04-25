@@ -1,6 +1,6 @@
 # Matter In Motion. API and Resources
 
-Before you start make sure you didn't miss the [units](https://github.com/matter-in-motion/mm/blob/master/docs/units.md) part.
+Before you start, make sure you did not miss the [units](https://github.com/matter-in-motion/mm/blob/master/docs/units.md) part.
 
 ## API
 
@@ -8,11 +8,11 @@ You can call any method of any resource as simple as `world.hello` or `user.auth
 
 ### Autodiscovery
 
-If you add `?` to the end of the call API will return:
+If you add `?` to the end of the call, API returns:
 
 * For the API itself (ex: `?`) — list of available resources
 * For resource (ex: `user?`) — list of available methods
-* For resource method (ex: `user.get?`) — schema with title, description, auth, request, and response
+* For resource method (ex: `user.get?`) — schema with title, description, auth, request, and response schemas
 
 ## Validation
 
@@ -39,7 +39,7 @@ Usual units structure of the resource inside `lib/resources` folder
 
 ### api.js
 
-This is a declaration of the resource API. It is optional, means that resources without API unit will not be available from the API. You can define as many methods as you want.
+This file is a declaration of the resource API. It is optional, means that resources without API unit are not available to the API calls. You can define as many methods as you want.
 
 ```js
 'use strict';
@@ -48,8 +48,8 @@ module.exports = {
   __expose: true,
 
   hello: function(app) {
-    // this is binded to resource controller is avaliable
-    // app is an instance of your app
+    // this is bound to resource controller is available
+    // the app is an instance of your app
     return {
       title: 'World',
       description: 'Say hello to the world!',
@@ -72,29 +72,34 @@ module.exports = {
 * __title__ — title of the resource method
 * __description__ — description of the resource method
 * __auth__
-  - provider — auth provider that should be used to verify request meta. If provider not found or not active returns `ProviderNotFound` error. Default prvider can also be defined in the sttings `auth` section as `default: 'user'`
-  - __required__ — true, false, 'optional'. defines should API return an error if meta isn't verified. If true and failed to verify meta returns an `Unauthorized` error
-* __raw__ — default false. Defines if you need a raw connection to parse request manually. This requires to validate incoming data manually
-* __request__ — JSON Schema that request should be validated against. If not returns `RequestValidation` error
-* __response__ — JSON Schema that response should be validated against. If not returns `ResponseValidation` error
-* __call__ — actual API call function.
+  - provider — auth provider that should be used to verify request meta. If provider not found or not active returns `ProviderNotFound` error. Default provider can also be defined in the settings `auth` section as `default: 'user'`
+  - __required__ — true, false, 'optional'. Defines should API return an error if meta is not verified. If true and failed to verify meta returns an `Unauthorized` error
+* __raw__ — default false. If `true`, passes a raw message object to parse request manually. When `true` requires validating incoming data manually
+* __request__ — request validation JSON schema. If validation fails returns the `RequestValidation` error
+* __response__ — response validation JSON Schema. If validation fails returns the `ResponseValidation` error
+* __call__ — API call function. The context of this function bound to Application instance.
 
-if the request is raw then call looks like this:
-`call: (incomingConnection, auth, data, cb)`
-
-If not:
-`call: (auth, data, cb)`
+`call` function signature when `raw` option is false (default)
+`call: (auth, data [, cb])`
 
 * __auth__ — is the token data
 * __data__ — is the __validated__ request data
 
-Only `request` and `call` required for API method definition.
+`call` function signature when `raw` option is true
+`call: (auth, msg [, cb])`
+
+* __auth__ — is the token data
+* __msg__ — is the message object
+
+*Only `request` and `call` required for API method definition.*
 
 ### controller.js
 
-Simple unit you can do whatever you want here
+A simple unit you can do whatever you want here
 
 ### index.js
+
+Resource definition unit.
 
 ```js
 'use strict';
@@ -116,4 +121,4 @@ module.exports = { resource1, resource2 };
 
 ## Usage
 
-Your resources will be available in your app in the `resources` unit.
+All resources are available in your application in the `resources` unit.

@@ -5,7 +5,7 @@ Extensions are the easy way to add features to the Matter In Motion app.
 ## Usage
 
 1. `npm i <extension>`
-2. Add extension into extensions list in your settings
+2. Add the extension to extensions list in your settings
 
 ```js
 Settings.prototype.init = function() {
@@ -23,18 +23,18 @@ Settings.prototype.init = function() {
 
 3. Add extension settings
 
-## Writing your own extension
+## Writing your extension
 
-Extensions could be very different, they can add resources, transports, or any other features. As example you can check any extensions from [GitHub](https://github.com/matter-in-motion)
+Extensions could be very different; they can add resources, transports, or any other features. As an example, you can check any extensions from [GitHub](https://github.com/matter-in-motion)
 
 ### Api
 
-1. **Naming convention is to name your npm packages as `mm-<extension>`**
+1. **Naming convention: name your npm packages like `mm-<extension>`**
 2. Use comprehend namespace for your module inside the application:
   - `db` — for database connectors
   - `templates` — for templates engines
   - `transports` — for transports
-  - `commands` — to add custom cli commands
+  - `commands` — to add custom CLI commands
   - `resources` — to add resources
 3. The main file of your extension package may return units tree you want to add to the application
 
@@ -48,26 +48,35 @@ module.exports = () => ({
   transports: { http: new Http() }
 });
 ```
+This creates the `transports.http` unit.
 
-This will create a `transports.http` unit.
-
-Or as [nunjucks-cachebust](https://github.com/matter-in-motion/mm-nunjucks-cachebust):
+Or as [nunjucks-extensions](https://github.com/matter-in-motion/mm-nunjucks-extensions):
 
 ```js
 'use strict';
-const CacheBust = require('./tags/cachebust');
 
 module.exports = units => {
+  const settings = units.require('core.settings').require('nunjucksExtensions');
+  const app = units.require('core.app');
   const env = units.require('templates.nunjucks');
-  env.addExtension('cachebust', new CacheBust());
+
+  settings.forEach(ext => {
+    if (typeof ext === 'string') {
+      ext = app.require(ext);
+    }
+
+    const extension = new ext();
+    const name = extension.tags[0];
+    env.addExtension(name, extension);
+  });
 }
 ```
 
-Doesn't add any new units but extends existing unit.
+Doesn't add any new units but extends the existing unit.
 
 ### Custom commands
 
-To add a custom cli commnad from your extension you have to export commands declarations from it. It looks like this:
+To add a CLI commands to the application, you need to export commands declarations from the extension:
 
 ```js
 'use strict';
@@ -90,16 +99,14 @@ module.exports = {
 };
 ```
 
-* **namespace** — here is the `user`. Give us a name space for all commands
-  - **__expose** — this is a special units directive to expose this object as it is and not like a unit
-  - **__extend** — this is a special units directive to extend existent commands namespace declaration (for example from an extension)
+* **namespace** — here is the `user`. Give us a namespace for all commands
+  - **__expose** — this is a `units` directive to expose this object as it is and not as a unit
+  - **__extend** — this is a `units` directive to extend existent commands namespace declaration (for example from an extension)
   - **name** — here is a `create`. Command name
     + **description** — command help string.
-    + **call** — command function. `this` is the application instance.
+    + **call** — command function. Context (`this`) of this function is bound to the application instance.
 
 To use the command declared above:
 
 `bin/mm user create John password`
-
-
 

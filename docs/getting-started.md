@@ -26,7 +26,7 @@ module.exports = App;
 
 Why just created our App class inherited from the Matter In Motion App class
 
-2. Matter in motion is a modular framework. And it is transport agnostic. So for a next step, we have to choose what transport and data serializer we are going to use. To keep things simple we stick to HTTP and JSON:
+2. Matter in motion is a modular framework. It is transport agnostic. So for a next step, we have to choose what transport and data serializer we are going to use. To keep things simple we stick to HTTP and JSON:
 
 `npm i mm-http mm-serializer-json`
 
@@ -57,25 +57,24 @@ Settings.prototype.init = function() {
   };
 
   this.http: {
-    port: 3000,
-    host: '0.0.0.0'
+    port: 3000
   };
 };
 
 module.exports = Settings;
 ```
 
-We just add minimal configuration to put the matter in motion by HTTP 🙂. You can see all other available HTTP settings check [http module](https://github.com/matter-in-motion/mm-http) documentation
+We added minimal configuration to put the matter in motion by HTTP 🙂. You can see all other available HTTP settings check [http module](https://github.com/matter-in-motion/mm-http) documentation
 
-This is gonna be your default settings file. Settings system is very flexible. To find more information about all the settings see [settings](https://github.com/matter-in-motion/mm/blob/master/docs/settings.md) chapter.
+This file is your default settings file. Settings system is very flexible. To find more information about all the settings see [settings](https://github.com/matter-in-motion/mm/blob/master/docs/settings.md) chapter.
 
-3. Next, we need to serve our index.html. And make a simple resource to call to.
+3. Next, we need to serve our index.html and make a simple resource to call.
 
 Let's start with the resource.
 
 `mkdir -p lib/resources/world`
 
-Here we need to make `world` API declaration file `api.js`
+Here we need to make `world` API declaration file `api.js`.
 
 ```js
 'use strict';
@@ -130,9 +129,9 @@ module.exports = () => ({
 });
 ```
 
-Let's review. We have `lib/resources/world` folder with three files `api.js`, `controller.js` and `index.js`. It is your first resource! Congratulations!
+Let's review. We have `lib/resources/world` folder with three files `api.js`, `controller.js` and `index.js`. It is your first resource, congratulations!
 
-Now we need to export `world` resource. Create a `lib/resources/index.js`
+Now we need to export `world` resource. Create a `lib/resources/index.js`.
 
 ```js
 'use strict';
@@ -140,7 +139,7 @@ const world = require('./world');
 module.exports = { world };
 ```
 
-This is done! Next is frontend part. Create a `templates/index.html`. Here we created a simple `POST` request and parse the response. You should be familiar with plain JavaScript in the browser. You may want to read more about [matter in motion protocol](https://github.com/matter-in-motion/mm/blob/master/docs/protocol.md) and [http transport](https://github.com/matter-in-motion/mm-http) later.
+The resource is ready! Next is frontend part. Create a `templates/index.html`. Here we create a simple `POST` request and parse the response. You should be familiar with plain JavaScript in the browser. You may want to read more about [matter in motion protocol](https://github.com/matter-in-motion/mm/blob/master/docs/protocol.md) and [http transport](https://github.com/matter-in-motion/mm-http) later.
 
 ```html
 <!DOCTYPE html>
@@ -211,11 +210,8 @@ module.exports = App;
 
 ```
 
-4. The last one. Just create default directories for logs. `mkdir -p var/{app,log}`.
+4. The last one. Create default directories for logs. `mkdir -p var/{run,log}`.
 
 That's it! We a read to have our first call. Run application `bin/mm worker` and go to [http://localhost:3000](http://localhost:3000) and try it yourself.
 
 Hooray!
-
-
-

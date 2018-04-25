@@ -7,7 +7,10 @@
 
 ## Why not REST?
 
-Put simply, real world application needs more than GET, POST, PUT, DELETE. Real world applications use more than just HTTP. How about WebSockets? MQTT? Events? Notifications? With REST your API is bind to HTTP.
+Put simply, a real-world application needs more than GET, POST, PUT, DELETE. Real-world applications use more than just HTTP. How about WebSockets? MQTT? Events? Notifications? With REST your API is bind to HTTP.
+
+> Let’s stop pretending REST is a good idea. REST is a bad idea that twists HTTP into something it is not, only to work around the limits of the browser, another tool twisted into being something it was never meant to be. This can only end in tears.
+> - [Mike Hearn](https://blog.plan99.net/its-time-to-kill-the-web-974a9fe80c89)
 
 ### Features
 * **~250ms** startup time for simple demo application worker

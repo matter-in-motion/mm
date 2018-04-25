@@ -1,12 +1,12 @@
 # Matter In Motion. Units
 
-Units is a simple way to have definable namespaces for application modules and two step initialization
+Units is a simple way to have definable namespaces for application modules and two-step initialization.
 
 More info at [units repository](https://github.com/velocityzen/units)
 
 ## Unit
 
-Unit is simple interface
+A unit is an interface
 
 ```js
 const Controller = function () {
@@ -26,14 +26,14 @@ Controller.prototype.__init = function (units) {
 Function, unit initialisation
 
 #### __initRequired
-Boolean, means that this unit, when required, will be returned inited
+Boolean, means that this unit returned inited when required
 
 #### __instance
-Function, If method present it will be called when a unit is required and it should return what you want to return instead of the unit class itself.
+Function, If this method exists units returns the result of this method when required instead of the unit class itself.
 
 ## Usage
 
-Units lets you build very simple, predictable and flexible architecture. Look at the actual resources exmaple:
+Units lets you build very simple, predictable and flexible architecture. Look at the actual resources example:
 
 ```
 /resources
@@ -48,7 +48,7 @@ Units lets you build very simple, predictable and flexible architecture. Look at
 index.js
 ```
 
-With this structure you can easly have references to any of your classes.
+With this structure, you can easily have references to any of your classes.
 
 To get reference to message controller from user controller:
 
@@ -82,5 +82,4 @@ Service.prototype.__init = function(units) {
 }
 ```
 
-You can expose any kind of data to the units namepsaces as well. Learn more about it at [units repository](https://github.com/velocityzen/units)
-
+You can expose any data to the units namespaces as well. Learn more about it at [units repository](https://github.com/velocityzen/units)

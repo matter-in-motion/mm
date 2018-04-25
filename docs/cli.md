@@ -20,7 +20,7 @@
 
 ## Custom commands
 
-To add your own custom commands just add a `commands` declaration. It can be a `commands.js` or `commands/index.js` in your app directory.
+To add your custom commands add a `commands` declaration. It can be a `commands.js` or `commands/index.js` in your app directory.
 
 ```js
 'use strict';
@@ -41,9 +41,9 @@ module.exports = {
 }
 ```
 
-* **namespace** — here is the `user`. A name space for all commands
-  - **__expose** — this is a special units directive to expose this object as it is and not like a unit
-  - **__extend** — this is a special units directive to extend existent commands namespace declaration (for example from an extension)
+* **namespace** — here is the `user`. A namespace for all commands
+  - **__expose** — this is a `units` directive to expose this object as it is and not as a unit
+  - **__extend** — this is a `units` directive to extend existent commands namespace declaration (for example from an extension)
   - **name** — here is a `create`. Command name
     + **description** — command help string.
     + **call** — command function. `this` is the application instance.
