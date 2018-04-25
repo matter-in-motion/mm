@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "ajv": "^6.4.0",
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^2.0.0",
     "bluebird": "^3.5.1",
     "jsonwebtoken": "^8.2.1",
     "minimist": "^1.2.0",
