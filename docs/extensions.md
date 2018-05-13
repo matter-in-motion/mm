@@ -50,19 +50,20 @@ module.exports = () => ({
 ```
 This creates the `transports.http` unit.
 
-Or as [nunjucks-extensions](https://github.com/matter-in-motion/mm-nunjucks-extensions):
+Or as in [nunjucks-extensions](https://github.com/matter-in-motion/mm-nunjucks-extensions):
 
 ```js
 'use strict';
 
-module.exports = units => {
-  const settings = units.require('core.settings').require('nunjucksExtensions');
-  const app = units.require('core.app');
-  const env = units.require('templates.nunjucks');
+module.exports = function() {
+  // this here is your App instance
+  const settings = this.units.require('core.settings').require('nunjucks').extensions;
+
+  const env = this.units.require('templates.nunjucks');
 
   settings.forEach(ext => {
     if (typeof ext === 'string') {
-      ext = app.require(ext);
+      ext = this.require(ext);
     }
 
     const extension = new ext();
