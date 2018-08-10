@@ -23,6 +23,7 @@
     "ajv": "^6.4.0",
     "bcrypt": "^3.0.0",
     "bluebird": "^3.5.1",
+    "dotenv": "^6.0.0",
     "jsonwebtoken": "^8.2.1",
     "minimist": "^1.2.0",
     "mm-errors": "^2.0.0",
