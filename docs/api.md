@@ -114,8 +114,8 @@ module.exports = () => ({
 ### resources/index.js
 ```js
 'use strict';
-const resource1 = require('./resource1/units');
-const resource2 = require('./resource2/units');
+const resource1 = require('./resource1');
+const resource2 = require('./resource2');
 module.exports = { resource1, resource2 };
 ```
 
