@@ -50,13 +50,13 @@ test('removes schema', t => {
 test('adds a keyword', t => {
   v.addKeyword('range', {
     type: 'number',
-    compile: function(sch, parentSchema) {
-      var min = sch[0];
-      var max = sch[1];
+    compile: (sch, parentSchema) => {
+      const min = sch[0];
+      const max = sch[1];
 
       return parentSchema.exclusiveRange === true
-              ? function (data) { return data > min && data < max; }
-              : function (data) { return data >= min && data <= max; }
+        ? data => data > min && data < max
+        : data => data >= min && data <= max;
     }
   });
 
