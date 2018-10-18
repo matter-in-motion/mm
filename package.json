@@ -20,16 +20,16 @@
     "email": "v@2dubs.com"
   },
   "dependencies": {
-    "ajv": "^6.4.0",
-    "bcrypt": "^3.0.0",
+    "ajv": "^6.5.4",
+    "bcrypt": "^3.0.2",
     "bluebird": "^3.5.1",
-    "dotenv": "^6.0.0",
+    "dotenv": "^6.1.0",
     "jsonwebtoken": "^8.2.1",
     "minimist": "^1.2.0",
-    "mm-errors": "^2.0.0",
+    "mm-errors": "^2.0.1",
     "ms": "^2.1.1",
-    "pino": "^5.0.0",
-    "pino-pretty": "^2.2.0",
+    "pino": "^5.8.0",
+    "pino-pretty": "^2.2.2",
     "prettyjson": "^1.2.1",
     "units": "^3.0.1"
   },
@@ -54,6 +54,6 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.25.0",
-    "nyc": "^13.0.0"
+    "nyc": "^13.1.0"
   }
 }
