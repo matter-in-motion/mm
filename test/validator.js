@@ -46,9 +46,8 @@ test('removes schema', t => {
   t.is(schema, undefined);
 })
 
-
 test('adds a keyword', t => {
-  v.addKeyword('range', {
+  v.addKeyword('xrange', {
     type: 'number',
     compile: (sch, parentSchema) => {
       const min = sch[0];
@@ -60,7 +59,7 @@ test('adds a keyword', t => {
     }
   });
 
-  const schema = v.compile({ 'range': [ 2, 4 ], 'exclusiveRange': true });
+  const schema = v.compile({ 'xrange': [ 2, 4 ], 'exclusiveRange': true });
   t.true(schema(2.01));
   t.true(schema(3.99));
   t.false(schema(2));

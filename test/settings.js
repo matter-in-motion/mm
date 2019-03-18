@@ -26,7 +26,7 @@ test('applies the settings from the object', t => {
   t.is(settings.test, 'test');
 })
 
-test('fails on require', t => {
+test('not fails on require', t => {
   const test = settings.require('test');
   t.is(test, 'test');
 })
