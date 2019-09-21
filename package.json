@@ -1,6 +1,6 @@
 {
   "name": "matter-in-motion",
-  "version": "3.2.0",
+  "version": "3.3.1",
   "description": "Node.js framework and protocol with the focus on real-time applications, blazing response time and low memory footprint.",
   "keywords": [
     "api",
@@ -26,7 +26,9 @@
     "minimist": "^1.2.0",
     "mm-errors": "^2.0.1",
     "ms": "^2.1.2",
-    "pino": "^5.0.0",
+    "dotenv": "^6.1.0",
+    "pino": "^5.8.0",
+    "pino-pretty": "^2.2.2",
     "prettyjson": "^1.2.1",
     "units": "^3.0.1"
   },
