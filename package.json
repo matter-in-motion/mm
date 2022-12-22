@@ -22,7 +22,7 @@
   "dependencies": {
     "ajv": "^6.10.2",
     "bcrypt": "^3.0.6",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "minimist": "^1.2.0",
     "mm-errors": "^2.0.1",
     "ms": "^2.1.2",
